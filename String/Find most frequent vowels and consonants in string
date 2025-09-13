@@ -1,0 +1,22 @@
+https://leetcode.com/problems/find-most-frequent-vowel-and-consonant/description/?envType=daily-question&envId=2025-09-13
+
+class Solution {
+    public int maxFreqSum(String s) {
+        int maxVowel = 0;
+        int maxCons = 0;
+
+        int[] arr = new int[26]; // frequency array
+
+        for (char ch : s.toCharArray()) {
+            arr[ch - 'a']++;
+
+            if ("aeiou".indexOf(ch) != -1) {
+                maxVowel = Math.max(maxVowel, arr[ch - 'a']);
+            } else {
+                maxCons = Math.max(maxCons, arr[ch - 'a']);
+            }
+        }
+
+        return maxCons + maxVowel;
+    }
+}
