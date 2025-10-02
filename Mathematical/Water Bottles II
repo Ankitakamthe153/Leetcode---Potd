@@ -1,0 +1,25 @@
+Leetcode Link :- https://leetcode.com/problems/water-bottles-ii/description/?envType=daily-question&envId=2025-10-02
+
+
+class Solution {
+    public int maxBottlesDrunk(int numBottles, int numExchange) {
+        int totalDrunk = 0;
+        int empty = 0;
+        
+        // Initially drink all full bottles
+        totalDrunk += numBottles;
+        empty += numBottles;
+        
+        while (empty >= numExchange) {
+            // Exchange empty bottles for 1 full bottle
+            empty -= numExchange;
+            numExchange++; // exchange requirement increases
+            
+            // Drink the new bottle
+            totalDrunk++;
+            empty++;
+        }
+        
+        return totalDrunk;
+    }
+}
