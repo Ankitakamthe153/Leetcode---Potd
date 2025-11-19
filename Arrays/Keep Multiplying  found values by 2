@@ -1,0 +1,22 @@
+Leetcode link :- https://leetcode.com/problems/keep-multiplying-found-values-by-two/description/?envType=daily-question&envId=2025-11-19
+
+
+
+class Solution {
+    public int findFinalValue(int[] nums, int original) {
+        // You can also use HashSet, but here we use an array like the C++ version
+        int[] arr = new int[1001];
+
+        for (int num : nums) {
+            if (num <= 1000) {
+                arr[num]++;
+            }
+        }
+
+        while (original <= 1000 && arr[original] > 0) {
+            original *= 2;
+        }
+
+        return original;
+    }
+}
