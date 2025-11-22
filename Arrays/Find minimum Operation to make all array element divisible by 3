@@ -1,0 +1,35 @@
+Leetcode link :- https://leetcode.com/problems/find-minimum-operations-to-make-all-elements-divisible-by-three/description/?envType=daily-question&envId=2025-11-22
+
+
+Approach 1 
+
+class Solution {
+    public int minimumOperations(int[] nums) {
+        int operations = 0;
+
+        for (int num : nums) {
+            int r = num % 3;
+
+            // r = 0 → already divisible → 0 operations
+            // r = 1 → subtract 1 → 1 operation
+            // r = 2 → add 1 → 1 operation
+            if (r != 0) operations++;
+        }
+
+        return operations;
+    }
+}
+
+
+Approach 2 
+
+
+import java.util.*;
+
+class Solution {
+    public int minimumOperations(int[] nums) {
+        return (int) Arrays.stream(nums)
+                .filter(num -> num % 3 != 0)
+                .count();
+    }
+}
